@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-23-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-23-0 http://www.eiffel.com/developers/xml/configuration-1-23-0.xsd" name="simple_console" uuid="C3D4E5F6-A7B8-4C5D-9E0F-1A2B3C4D5E6F" library_target="simple_console">
+	<description>Simple Console Library - SCOOP-compatible Win32 console manipulation</description>
+	<target name="simple_console">
+		<root all_classes="true"/>
+		<file_rule>
+			<exclude>/EIFGENs$</exclude>
+			<exclude>/\..*$</exclude>
+		</file_rule>
+		<option warning="warning">
+			<assertions precondition="true" postcondition="true" check="true" invariant="true" loop="true" supplier_precondition="true"/>
+		</option>
+		<setting name="console_application" value="true"/>
+		<setting name="dead_code_removal" value="feature"/>
+		<capability>
+			<concurrency support="scoop" use="thread"/>
+			<void_safety support="all"/>
+		</capability>
+		<external_include location="$(SIMPLE_CONSOLE)\Clib"/>
+		<external_object location="$(SIMPLE_CONSOLE)\Clib\simple_console.obj">
+			<condition>
+				<platform value="windows"/>
+			</condition>
+		</external_object>
+		<library name="base" location="$ISE_LIBRARY\library\base\base.ecf"/>
+		<cluster name="src" location=".\src\" recursive="true"/>
+	</target>
+	<target name="simple_console_tests" extends="simple_console">
+		<root class="APPLICATION" feature="make"/>
+		<option warning="warning">
+			<assertions precondition="true" postcondition="true" check="true" invariant="true" loop="true" supplier_precondition="true"/>
+		</option>
+		<setting name="console_application" value="true"/>
+		<library name="testing" location="$ISE_LIBRARY\library\testing\testing.ecf"/>
+		<library name="testing_ext" location="$TESTING_EXT\testing_ext.ecf"/>
+		<cluster name="tests" location=".\testing\" recursive="true"/>
+	</target>
+</system>
