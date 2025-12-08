@@ -1,6 +1,6 @@
 note
 	description: "Tests for SIMPLE_CONSOLE library"
-	testing: "type/manual"
+	testing: "covers"
 
 class
 	TEST_SIMPLE_CONSOLE
