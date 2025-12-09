@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+- Inline C code into Eiffel class per Eric Bezault recommendation
 - Testing config updates, AutoTest fixes, .gitignore cleanup
 - Migrate to simple_testing library
 - Add GitHub Pages documentation
